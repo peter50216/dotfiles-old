@@ -15,5 +15,6 @@ stow screen
 sudo apt-get -y install python-setuptools
 sudo apt-get -y install keychain
 sudo apt-get -y install screen
+sudo apt-get -y install htop
 
 ./install-vim.sh
