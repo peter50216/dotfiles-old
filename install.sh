@@ -1,4 +1,5 @@
 #!/bin/bash -v
+sudo apt-get update
 sudo apt-get -y install stow
 
 # Backup default config
