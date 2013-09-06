@@ -9,3 +9,4 @@ stow screen
 # Some useful packages
 sudo apt-get install python-setuptools
 sudo apt-get install keychain
+sudo apt-get install screen
