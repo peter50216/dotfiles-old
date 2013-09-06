@@ -68,9 +68,9 @@ set t_Co=256
 set tabstop=2
 set title
 set undofile
-set viewoptions=cursor,slash,unix
+set viewoptions=cursor,folds,slash,unix
 set wildmenu
-color torte
+colorscheme torte
 
 " Custom keybinding
 let mapleader='.'

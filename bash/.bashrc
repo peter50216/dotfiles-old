@@ -102,5 +102,5 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
-eval `keychain --eval ~/.ssh/chromium`
+eval `keychain --eval ~/.ssh/id_rsa`
 umask 022
