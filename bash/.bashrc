@@ -34,9 +34,8 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-  xterm) color_prompt=yes;;
-  xterm-color) color_prompt=yes;;
-  screen-256color) color_prompt=yes;;
+  xterm*) color_prompt=yes;;
+  screen*) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -102,5 +101,9 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
+
+# keychain
 eval `keychain --eval ~/.ssh/id_rsa`
 umask 022
+
+export LC_ALL="en_US.UTF-8"
