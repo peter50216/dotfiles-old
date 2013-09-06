@@ -39,6 +39,7 @@ vim -c "BundleInstall" -c "qa"
 
 # Build YCM
 cd ~/.vim/bundle/YouCompleteMe
+sudo apt-get install cmake
 ./install.sh --clang-completer
 
 # Get gjslint
