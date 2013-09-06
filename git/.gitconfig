@@ -1,0 +1,25 @@
+[user]
+  name = Pi-Hsun Shih
+  email = peter50216@gmail.com
+[merge]
+  tool = vimdiff
+[core]
+  editor = vim
+	excludesfile = ~/.gitignore_global
+[color]
+  ui = true
+[diff]
+  tool = vimdiff
+[push]
+  default = current
+[alias]
+  ci = commit
+  dt = difftool
+  st = status
+  br = branch
+  di = diff
+  co = checkout
+  cp = cherry-pick
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  pa = add --patch
+
