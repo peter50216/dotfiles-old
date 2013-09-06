@@ -28,7 +28,7 @@ cd vim
   --enable-pythoninterp \
   --with-python-config-dir=/usr/lib/python2.7-config \
   --enable-perlinterp \
-  --enable-gui=gtk2 --enable-cscope --prefix=/usr/local \
+  --enable-gui=gtk2 --enable-cscope --prefix=/usr \
   --with-compiledby="Darkpi (peter50216@gmail.com)"
 make VIMRUNTIMEDIR=/usr/share/vim/vim74 -j $(num_cores)
 sudo make install
