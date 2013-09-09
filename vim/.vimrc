@@ -124,9 +124,12 @@ autocmd BufWinLeave * call clearmatches()
 
 " Filetype specific settings
 autocmd BufNewFile,BufRead *.coffee,*.ls setl foldmethod=indent
-autocmd BufNewFile,BufRead *.cpp set filetype=cpp11
-autocmd BufNewFile,BufRead *.h set filetype=cpp11
+" YCM doesn't recognize Cpp11 file type.
+" autocmd BufNewFile,BufRead *.cpp set filetype=cpp11
+" autocmd BufNewFile,BufRead *.h set filetype=cpp11
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango
+
+let c_no_curly_error=1
 
 " NERDTree
 let NERDTreeWinSize=33
