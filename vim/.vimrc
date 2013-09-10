@@ -140,6 +140,7 @@ noremap <F5> :YcmForceCompileAndDiagnostics<CR>
 inoremap <F5> <ESC>:YcmForceCompileAndDiagnostics<CR>
 noremap <C-g> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 inoremap <C-g> <ESC>:YcmCompleter GoToDefinitionElseDeclaration<CR>
+autocmd! BufWritePost * silent YcmForceCompileAndDiagnostics
 
 " Syntastic
 let g:syntastic_always_populate_loc_list=1
