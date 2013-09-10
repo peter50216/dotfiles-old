@@ -37,7 +37,7 @@ sudo make install
 
 # Vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim -c "BundleInstall" -c "qa"
+vim -c "BundleInstall" -c "BundleUpdate" -c "qa"
 
 # Build YCM
 cd ~/.vim/bundle/YouCompleteMe
