@@ -6,6 +6,9 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
+" Fix F1~F4, Shift+Cursor in screen
+set term=xterm
+
 " Plugins
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
@@ -33,16 +36,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/Cpp11-Syntax-Support'
 
 filetype plugin indent on
-
-" For shift-cursor
-if !has("gui_running")
-  if &term == "screen" || &term == "screen-256color"
-    set <S-Up>=[1;2A
-    set <S-Down>=[1;2B
-    set <S-Right>=[1;2C
-    set <S-Left>=[1;2D
-  endif
-endif
 
 " Settings
 syntax on
