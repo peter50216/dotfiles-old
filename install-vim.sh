@@ -23,6 +23,7 @@ function num_cores {
 cd ~
 hg clone https://code.google.com/p/vim/
 cd vim
+hg pull
 ./configure --with-features=huge \
   --enable-rubyinterp \
   --enable-pythoninterp \
