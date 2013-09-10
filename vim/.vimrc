@@ -127,7 +127,6 @@ let c_no_curly_error=1
 " NERDTree
 let NERDTreeWinSize=33
 let NERDTreeIgnore=['\.o$', '\.a$', '\.d$', '\.pyc', '\.swo', '\.swp', '\.un\~', '\.un']
-let NERDTreeShowHidden=1
 let g:nerdtree_tabs_open_on_console_startup=1
 nnoremap n :NERDTreeTabsToggle<CR>
 
