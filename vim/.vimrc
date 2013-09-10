@@ -137,9 +137,9 @@ let g:NERDSpaceDelims=1
 " YouCompleteMe
 let g:ycm_confirm_extra_conf=0
 noremap <F5> :YcmForceCompileAndDiagnostics<CR>
-inoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+inoremap <F5> <ESC>:YcmForceCompileAndDiagnostics<CR>
 noremap <C-g> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-inoremap <C-g> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+inoremap <C-g> <ESC>:YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Syntastic
 let g:syntastic_always_populate_loc_list=1
