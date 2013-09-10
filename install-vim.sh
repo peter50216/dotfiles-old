@@ -24,6 +24,7 @@ cd ~
 hg clone https://code.google.com/p/vim/
 cd vim
 hg pull
+hg update
 ./configure --with-features=huge \
   --enable-rubyinterp \
   --enable-pythoninterp \
