@@ -10,7 +10,8 @@ Bundle 'gmarik/vundle'
 set term=xterm
 
 " Plugins
-Bundle 'Valloric/YouCompleteMe'
+" fork of small fix.
+Bundle 'peter50216/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/ListToggle'
 " TODO: Waiting for fix on nerdtree.
