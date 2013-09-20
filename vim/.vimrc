@@ -14,8 +14,7 @@ set term=xterm
 Bundle 'peter50216/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/ListToggle'
-" TODO: Waiting for fix on nerdtree.
-" Bundle 'myusuf3/numbers.vim'
+Bundle 'myusuf3/numbers.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -151,6 +150,9 @@ let g:syntastic_javascript_checkers=['gjslint']
 
 " EasyMotion
 let g:EasyMotion_leader_key='<Leader>'
+
+" Numbers.vim
+let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'nerdtree']
 
 " Local vimrc
 let g:localvimrc_whitelist=''
