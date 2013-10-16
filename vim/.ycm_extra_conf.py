@@ -29,8 +29,13 @@
 # For more information, please refer to <http://unlicense.org/>
 
 import os
+import sys
 import ycm_core
 from clang_helpers import PrepareClangFlags
+
+
+def DirectoryOfThisScript():
+  return os.path.dirname( os.path.abspath( __file__ ) )
 
 # These are the compilation flags that will be used in case there's no
 # compilation database set (by default, one is not set).
@@ -38,7 +43,6 @@ from clang_helpers import PrepareClangFlags
 flags = [
 '-Wall',
 '-Wextra',
-'-DNDEBUG',
 '-DUSE_CLANG_COMPLETER',
 # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
 # language to use when compiling headers. So it will guess. Badly. So C++
@@ -53,9 +57,11 @@ flags = [
 # For a C project, you would set this to 'c' instead of 'c++'.
 '-x',
 'c++',
-'-I',
-'.',
 ]
+if os.path.exists(os.path.join(DirectoryOfThisScript(), 'ycm_extra_conf_local.py')):
+  sys.path.append(DirectoryOfThisScript())
+  import ycm_extra_conf_local
+  flags += ycm_extra_conf_local.flags
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for
@@ -69,10 +75,6 @@ if compilation_database_folder:
   database = ycm_core.CompilationDatabase( compilation_database_folder )
 else:
   database = None
-
-
-def DirectoryOfThisScript():
-  return os.path.dirname( os.path.abspath( __file__ ) )
 
 def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):
   if not working_directory:
