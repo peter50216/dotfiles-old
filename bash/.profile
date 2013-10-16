@@ -20,3 +20,7 @@ fi
 if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
+
+if [ -f "$HOME/.profile_local" ]; then
+  . "$HOME/.profile_local"
+fi
