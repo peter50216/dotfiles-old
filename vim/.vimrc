@@ -24,6 +24,7 @@ Bundle 'vim-scripts/restore_view.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
 Bundle 'jpalardy/vim-slime'
+Bundle 'vim-scripts/SearchComplete'
 
 " Language syntax/indent/compile/etc.
 Bundle 'othree/html5.vim'
@@ -50,6 +51,7 @@ set foldmethod=syntax
 set history=1000
 set hlsearch
 set incsearch
+set lazyredraw
 set mouse=a
 set number
 set ruler
