@@ -11,7 +11,7 @@ set term=xterm
 
 " Plugins
 " fork of small fix.
-Bundle 'peter50216/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/ListToggle'
 Bundle 'myusuf3/numbers.vim'
@@ -79,6 +79,7 @@ inoremap <S-Up> <Up>
 inoremap <S-Down> <Down>
 nnoremap <leader>a <C-a>
 nnoremap <leader>x <C-x>
+imap {<CR> {<ESC>o}<ESC>%a<CR>
 set pastetoggle=<F2>
 
 " Save your swp files to a less annoying place than the current directory.
