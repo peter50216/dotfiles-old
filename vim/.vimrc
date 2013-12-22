@@ -24,6 +24,7 @@ Bundle 'vim-scripts/restore_view.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
 Bundle 'jpalardy/vim-slime'
+Bundle 'Raimondi/delimitMate'
 
 " Language syntax/indent/compile/etc.
 Bundle 'othree/html5.vim'
@@ -45,6 +46,8 @@ set backspace=2
 set completeopt=menuone
 set confirm
 set expandtab
+set fileencoding=utf8
+set fileencodings=utf8,big5,cp950
 set foldmethod=syntax
 " set foldnestmax=2
 set history=1000
@@ -79,7 +82,7 @@ inoremap <S-Up> <Up>
 inoremap <S-Down> <Down>
 nnoremap <leader>a <C-a>
 nnoremap <leader>x <C-x>
-imap {<CR> {<ESC>o}<ESC>%a<CR>
+" imap {<CR> {<ESC>o}<ESC>%a<CR>
 set pastetoggle=<F2>
 
 " Save your swp files to a less annoying place than the current directory.
@@ -168,6 +171,10 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 " ListToggle
 let g:lt_location_list_toggle_map='<leader>l'
 let g:lt_quickfix_list_toggle_map='<leader>q'
+
+" DelimitMate
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
 
 " Status line
 highlight StatusLine cterm=none ctermbg=235
