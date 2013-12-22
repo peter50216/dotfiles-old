@@ -42,6 +42,7 @@ filetype plugin indent on
 " Settings
 syntax on
 set autoindent
+set autoread
 set background=dark
 set backspace=2
 set completeopt=menuone
