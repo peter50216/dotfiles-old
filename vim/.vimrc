@@ -180,6 +180,8 @@ let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 let g:delimitMate_balance_matchpairs = 1
 inoremap <C-D> <C-R>=delimitMate#JumpMany()<CR>
+" prevent confilct with YCM gotodefinition
+autocmd BufNewFile,BufRead,BufEnter * silent! iunmap <buffer> <C-g>g
 
 " Status line
 highlight StatusLine cterm=none ctermbg=235
