@@ -25,6 +25,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'jpalardy/vim-slime'
 Bundle 'vim-scripts/SearchComplete'
 Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-surround'
 
 " Language syntax/indent/compile/etc.
 Bundle 'othree/html5.vim'
@@ -35,6 +36,8 @@ Bundle 'groenewege/vim-less'
 Bundle 'wavded/vim-stylus'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/Cpp11-Syntax-Support'
+Bundle 'slim-template/vim-slim'
+Bundle 'hail2u/vim-css3-syntax'
 
 filetype plugin indent on
 
