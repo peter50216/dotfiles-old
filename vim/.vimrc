@@ -25,6 +25,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'jpalardy/vim-slime'
 Bundle 'vim-scripts/SearchComplete'
 Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-endwise'
 
 " Language syntax/indent/compile/etc.
 Bundle 'othree/html5.vim'
@@ -46,6 +47,7 @@ set background=dark
 set backspace=2
 set completeopt=menuone
 set confirm
+set display=lastline
 set expandtab
 set fileencoding=utf8
 set fileencodings=utf8,big5,cp950
