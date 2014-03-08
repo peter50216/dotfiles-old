@@ -18,5 +18,7 @@ sudo apt-get -y install keychain
 sudo apt-get -y install screen
 sudo apt-get -y install tmux
 sudo apt-get -y install htop
+sudo apt-get -y install cmake
 
 ./install-vim.sh
+./install-tmux.sh
