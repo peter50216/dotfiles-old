@@ -39,6 +39,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/Cpp11-Syntax-Support'
 Bundle 'slim-template/vim-slim'
 Bundle 'hail2u/vim-css3-syntax'
+Bundle 'dag/vim2hs'
 
 filetype plugin indent on
 
