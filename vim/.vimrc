@@ -4,41 +4,45 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " Fix F1~F4, Shift+Cursor in screen
 set term=xterm
 
 " Plugins
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/syntastic'
-Bundle 'Valloric/ListToggle'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'embear/vim-localvimrc'
-Bundle 'vim-scripts/restore_view.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-fugitive'
-Bundle 'jpalardy/vim-slime'
-Bundle 'vim-scripts/SearchComplete'
-Bundle 'Raimondi/delimitMate'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
+Plugin 'SirVer/ultisnips'
+Plugin 'peter50216/VimSnippets'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/ListToggle'
+Plugin 'myusuf3/numbers.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'embear/vim-localvimrc'
+Plugin 'vim-scripts/restore_view.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-fugitive'
+Plugin 'jpalardy/vim-slime'
+Plugin 'vim-scripts/SearchComplete'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 
 " Language syntax/indent/compile/etc.
-Bundle 'othree/html5.vim'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'tpope/vim-haml'
-Bundle 'gkz/vim-ls'
-Bundle 'groenewege/vim-less'
-Bundle 'wavded/vim-stylus'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'vim-scripts/Cpp11-Syntax-Support'
-Bundle 'slim-template/vim-slim'
-Bundle 'hail2u/vim-css3-syntax'
+Plugin 'othree/html5.vim'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'tpope/vim-haml'
+Plugin 'gkz/vim-ls'
+Plugin 'groenewege/vim-less'
+Plugin 'wavded/vim-stylus'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'vim-scripts/Cpp11-Syntax-Support'
+Plugin 'slim-template/vim-slim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'dag/vim2hs'
 
 filetype plugin indent on
 
@@ -136,7 +140,7 @@ autocmd BufNewFile,BufRead *.html set filetype=htmldjango
 let c_no_curly_error=1
 
 " NERDTree
-let NERDTreeWinSize=33
+let NERDTreeWinSize=20
 let NERDTreeIgnore=['\.o$', '\.a$', '\.d$', '\.pyc', '\.swo', '\.swp', '\.un\~', '\.un']
 let g:nerdtree_tabs_open_on_console_startup=1
 nnoremap n :NERDTreeTabsToggle<CR>
@@ -146,6 +150,8 @@ let g:NERDSpaceDelims=1
 
 " YouCompleteMe
 let g:ycm_confirm_extra_conf=0
+" To avoid problem with hack below for UltiSnip
+let g:ycm_key_list_select_completion = []
 noremap <F5> :YcmForceCompileAndDiagnostics<CR>
 inoremap <F5> <ESC>:YcmForceCompileAndDiagnostics<CR>
 noremap <C-g> :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -185,6 +191,27 @@ let g:delimitMate_balance_matchpairs = 1
 inoremap <C-D> <C-R>=delimitMate#JumpMany()<CR>
 " prevent confilct with YCM gotodefinition
 autocmd BufNewFile,BufRead,BufEnter * silent! iunmap <buffer> <C-g>g
+
+" UltiSnip
+" Hack from http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+function! g:UltiSnips_Complete()
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    if pumvisible()
+      return "\<C-N>"
+    else
+      return "\<TAB>"
+    endif
+  endif
+  return ""
+endfunction
+
+let g:UltiSnipsExpandTrigger="<TAB>"
+let g:UltiSnipsJumpForwardTrigger="<C-E>"
+let g:UltiSnipsJumpBackwardTrigger="<C-Q>"
+let g:UltiSnipsListSnippets="<C-L>"
+let g:UltiSnipsEditSplit="horizontal"
+autocmd BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 
 " Status line
 highlight StatusLine cterm=none ctermbg=235
