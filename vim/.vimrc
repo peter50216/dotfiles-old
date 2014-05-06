@@ -213,6 +213,10 @@ let g:UltiSnipsListSnippets="<C-L>"
 let g:UltiSnipsEditSplit="horizontal"
 autocmd BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 
+" Colors
+highlight Folded ctermfg=243 ctermbg=234 guifg=Cyan guibg=DarkGrey
+highlight FoldColumn ctermbg=234 guifg=Cyan guibg=Grey
+
 " Status line
 highlight StatusLine cterm=none ctermbg=235
 highlight StatusLineNC ctermfg=252 ctermbg=235
