@@ -43,6 +43,7 @@ Plugin 'vim-scripts/Cpp11-Syntax-Support'
 Plugin 'slim-template/vim-slim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'dag/vim2hs'
+Plugin 'vim-ruby/vim-ruby'
 
 filetype plugin indent on
 
