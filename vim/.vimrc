@@ -1,9 +1,9 @@
 " Vundle
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " Fix F1~F4, Shift+Cursor in screen
@@ -45,6 +45,7 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'dag/vim2hs'
 Plugin 'vim-ruby/vim-ruby'
 
+call vundle#end()
 filetype plugin indent on
 
 " Settings

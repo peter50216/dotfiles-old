@@ -36,7 +36,7 @@ make VIMRUNTIMEDIR=/usr/share/vim/vim74 -j $(num_cores)
 sudo make install
 
 # Vundle
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim -c "BundleInstall" -c "BundleUpdate" -c "qa"
 
 # Build YCM
