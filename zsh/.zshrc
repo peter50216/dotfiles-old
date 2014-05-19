@@ -1,6 +1,6 @@
 # zshrc by shik
 
-export TERM=screen-256color
+# export TERM=screen-256color
 
 # PROMPT {{{
 
@@ -44,10 +44,10 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[Home]}"     ]] && bindkey "${key[Home]}"     beginning-of-line
 [[ -n "${key[End]}"      ]] && bindkey "${key[End]}"      end-of-line
 [[ -n "${key[Delete]}"   ]] && bindkey "${key[Delete]}"   delete-char
-[[ -n "${key[Up]}"       ]] && bindkey "${key[Up]}"       up-line-or-search
-[[ -n "${key[Down]}"     ]] && bindkey "${key[Down]}"     down-line-or-search
-[[ -n "${key[Left]}"     ]] && bindkey "${key[Left]}"     backward-char
-[[ -n "${key[Right]}"    ]] && bindkey "${key[Right]}"    forward-char
+# [[ -n "${key[Up]}"       ]] && bindkey "${key[Up]}"       up-line-or-search
+# [[ -n "${key[Down]}"     ]] && bindkey "${key[Down]}"     down-line-or-search
+# [[ -n "${key[Left]}"     ]] && bindkey "${key[Left]}"     backward-char
+# [[ -n "${key[Right]}"    ]] && bindkey "${key[Right]}"    forward-char
 [[ -n "${key[PageUp]}"   ]] && bindkey "${key[PageUp]}"   backward-word
 [[ -n "${key[PageDown]}" ]] && bindkey "${key[PageDown]}" forward-word
 
