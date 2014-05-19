@@ -7,6 +7,7 @@ mv ~/.bashrc ~/.bashrc_default
 mv ~/.profile ~/.profile_default
 
 stow bash
+stow zsh
 stow vim
 stow git
 stow screen
