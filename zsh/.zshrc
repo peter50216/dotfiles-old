@@ -1,133 +1,85 @@
-# zshrc by shik
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
 
-# export TERM=screen-256color
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="gianu"
 
-# PROMPT {{{
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-autoload -Uz colors && colors
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-PROMPT="%{$fg_bold[green]%}%n@%m%{$reset_color%}"
-PROMPT+=":%{$fg_bold[blue]%}%~%{$reset_color%}"
-# PROMPT="%{%F{140}%}%n@%m%{%f%}"
-# PROMPT+=":%{%F{110}%}%~%{%f%}"
-PROMPT+="%(!.#.$) "
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# }}}
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-# KEY {{{
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-zle-line-init () {
-  (( ${+terminfo[smkx]} )) && echoti smkx
-}
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-zle-line-finish () {
-  (( ${+terminfo[rmkx]} )) && echoti rmkx
-}
+# Uncomment the following line to disable command auto-correction.
+# DISABLE_CORRECTION="true"
 
-zle -N zle-line-init
-zle -N zle-line-finish
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
 
-bindkey -e
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-typeset -A key
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
 
-key[Home]=${terminfo[khome]}
-key[End]=${terminfo[kend]}
-key[Delete]=${terminfo[kdch1]}
-key[Up]=${terminfo[kcuu1]}
-key[Down]=${terminfo[kcud1]}
-key[Left]=${terminfo[kcub1]}
-key[Right]=${terminfo[kcuf1]}
-key[PageUp]=${terminfo[kpp]}
-key[PageDown]=${terminfo[knp]}
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-[[ -n "${key[Home]}"     ]] && bindkey "${key[Home]}"     beginning-of-line
-[[ -n "${key[End]}"      ]] && bindkey "${key[End]}"      end-of-line
-[[ -n "${key[Delete]}"   ]] && bindkey "${key[Delete]}"   delete-char
-# [[ -n "${key[Up]}"       ]] && bindkey "${key[Up]}"       up-line-or-search
-# [[ -n "${key[Down]}"     ]] && bindkey "${key[Down]}"     down-line-or-search
-# [[ -n "${key[Left]}"     ]] && bindkey "${key[Left]}"     backward-char
-# [[ -n "${key[Right]}"    ]] && bindkey "${key[Right]}"    forward-char
-[[ -n "${key[PageUp]}"   ]] && bindkey "${key[PageUp]}"   backward-word
-[[ -n "${key[PageDown]}" ]] && bindkey "${key[PageDown]}" forward-word
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git bundler cabal coffee gitignore golang node nvm python rbenv ruby sudo ssh-agent tmux vundle)
 
-# }}}
-
-# OPT {{{
-
-HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
-setopt append_history
-setopt inc_append_history
-setopt extended_history
-setopt extended_glob
-
-setopt auto_pushd
-setopt auto_name_dirs
-setopt pushd_minus
-setopt pushd_ignore_dups
-
-setopt correct
-setopt multios
-
-setopt complete_in_word
-
-autoload -Uz compinit
-compinit
-
-autoload -Uz url-quote-magic
-zle -N self-insert url-quote-magic
-
-# }}}
-
-# ALIAS {{{
-
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto'
-  #alias dir='dir --color=auto'
-  #alias vdir='vdir --color=auto'
+ZSH_TMUX_AUTOCONNECT="false"
+# ZSH_TMUX_AUTOSTART="true"
+if [[ $TERM == "xterm" ]]; then
+  export TERM=xterm-256color
 fi
 
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias ..='cd ..'
-alias ...='cd ..;cd ..;'
-alias ~='cd ~'
-alias tmux='tmux -2'
+source $ZSH/oh-my-zsh.sh
 
-# }}}
+# User configuration
 
-# EXPORT {{{
+# export MANPATH="/usr/local/man:$MANPATH"
 
-export EDITOR=vim
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export GREP_OPTIONS='--color=auto'
-export PAGER='less'
-export LESS='-R'
-export CLICOLOR=1
-export WECHALLUSER="peter50216"
-export WECHALLTOKEN="C03C8-2EC56-699E9-B4004-8AB5F-D50AB"
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-# }}}
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-# keychain
-eval `keychain --eval ~/.ssh/id_rsa`
-umask 022
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# OTHER {{{
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 if [[ -d "$HOME/.cabal" ]]; then
   export PATH=$HOME/.cabal/bin:$PATH
-fi
-
-if [[ -d "$HOME/.rbenv" ]]; then
-  export PATH=$HOME/.rbenv/bin:$PATH
-  eval "$(rbenv init -)"
 fi
 
 if [[ -d "$HOME/.nvm" ]]; then
@@ -137,5 +89,3 @@ fi
 if [ -f "$HOME/.profile_local" ]; then
   . "$HOME/.profile_local"
 fi
-
-# }}}

@@ -44,6 +44,7 @@ Plugin 'slim-template/vim-slim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'dag/vim2hs'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
@@ -214,6 +215,9 @@ let g:UltiSnipsJumpBackwardTrigger="<C-Q>"
 let g:UltiSnipsListSnippets="<C-L>"
 let g:UltiSnipsEditSplit="horizontal"
 autocmd BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+
+" Vim-Go
+let g:go_auto_type_info=1
 
 " Colors
 highlight Folded ctermfg=243 ctermbg=234 guifg=Cyan guibg=DarkGrey
