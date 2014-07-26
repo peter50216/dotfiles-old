@@ -190,7 +190,7 @@ let g:lt_quickfix_list_toggle_map='<leader>q'
 
 " DelimitMate
 let g:delimitMate_expand_cr = 1
-let g:delimitMate_balance_matchpairs = 1
+" let g:delimitMate_balance_matchpairs = 1
 inoremap <C-D> <C-R>=delimitMate#JumpMany()<CR>
 " prevent confilct with YCM gotodefinition
 autocmd BufNewFile,BufRead,BufEnter * silent! iunmap <buffer> <C-g>g
