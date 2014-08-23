@@ -23,7 +23,6 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'embear/vim-localvimrc'
 Plugin 'vim-scripts/restore_view.vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-fugitive'
 Plugin 'jpalardy/vim-slime'
 Plugin 'vim-scripts/SearchComplete'
 Plugin 'Raimondi/delimitMate'
@@ -32,19 +31,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
 " Language syntax/indent/compile/etc.
-Plugin 'othree/html5.vim'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'tpope/vim-haml'
-Plugin 'gkz/vim-ls'
-Plugin 'groenewege/vim-less'
-Plugin 'wavded/vim-stylus'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'vim-scripts/Cpp11-Syntax-Support'
-Plugin 'slim-template/vim-slim'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'dag/vim2hs'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'fatih/vim-go'
+" One pack for all!!!
+Plugin 'sheerun/vim-polyglot'
 
 call vundle#end()
 filetype plugin indent on
@@ -218,6 +206,9 @@ autocmd BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R
 
 " Vim-Go
 let g:go_auto_type_info=1
+
+" vim-slime
+let g:slime_target = "tmux"
 
 " Colors
 highlight Folded ctermfg=243 ctermbg=234 guifg=Cyan guibg=DarkGrey
