@@ -60,6 +60,7 @@ set number
 set ruler
 set shiftwidth=2
 set showcmd
+set showtabline=2
 set smartindent
 set softtabstop=2
 set t_Co=256
