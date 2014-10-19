@@ -130,8 +130,16 @@ autocmd FileType coffee setl foldmethod=indent
 " autocmd BufNewFile,BufRead *.h set filetype=cpp11
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango
 
-" Coffeescript syntax in slim, copied from jade.vim
-autocmd FileType slim syn region slimCoffeescriptFilter start="^\z(\s*\)coffee:\s*$" end="^\%(\z1\s\|\s*$\)\@!" contains=@htmlCoffeescript
+" syntax in slim, copied from jade.vim
+autocmd FileType slim call SetSlimInlineStyle()
+function! SetSlimInlineStyle()
+  hi def link slimFilter PreProc
+  silent! syntax include @htmlCoffeescript syntax/coffee.vim
+  unlet! b:current_syntax
+  syn region slimCoffeescript matchgroup=slimFilter start="^\z(\s*\)coffee:\s*$" end="^\%(\z1\s\|\s*$\)\@!" contains=@htmlCoffeescript
+  syn region slimJavascript matchgroup=slimFilter start="^\z(\s*\)javascript:\s*$" end="^\%(\z1\s\|\s*$\)\@!" contains=@htmlJavascript
+  syn region slimCss matchgroup=slimFilter start="^\z(\s*\)css:\s*$"  end="^\%(\z1\s\|\s*$\)\@!" contains=@htmlCss
+endfunction
 
 let c_no_curly_error=1
 

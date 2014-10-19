@@ -93,5 +93,13 @@ fi
 if [ -f "$HOME/.profile_local" ]; then
   . "$HOME/.profile_local"
 fi
+
+key[PageUp]=${terminfo[kpp]}
+key[PageDown]=${terminfo[knp]}
+
+[[ -n "${key[PageUp]}"   ]] && bindkey "${key[PageUp]}"   backward-word
+[[ -n "${key[PageDown]}" ]] && bindkey "${key[PageDown]}" forward-word
+
 export WECHALLUSER="peter50216"
 export WECHALLTOKEN="C03C8-2EC56-699E9-B4004-8AB5F-D50AB"
+
