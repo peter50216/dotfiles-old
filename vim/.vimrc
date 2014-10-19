@@ -29,6 +29,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'Shougo/vinarise.vim'
 
 " Language syntax/indent/compile/etc.
 " One pack for all!!!
@@ -123,16 +124,19 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Filetype specific settings
-autocmd BufNewFile,BufRead *.coffee,*.ls setl foldmethod=indent
+autocmd FileType coffee setl foldmethod=indent
 " YCM doesn't recognize Cpp11 file type.
 " autocmd BufNewFile,BufRead *.cpp set filetype=cpp11
 " autocmd BufNewFile,BufRead *.h set filetype=cpp11
 autocmd BufNewFile,BufRead *.html set filetype=htmldjango
 
+" Coffeescript syntax in slim, copied from jade.vim
+autocmd FileType slim syn region slimCoffeescriptFilter start="^\z(\s*\)coffee:\s*$" end="^\%(\z1\s\|\s*$\)\@!" contains=@htmlCoffeescript
+
 let c_no_curly_error=1
 
 " NERDTree
-let NERDTreeWinSize=20
+let NERDTreeWinSize=16
 let NERDTreeIgnore=['\.o$', '\.a$', '\.d$', '\.pyc', '\.swo', '\.swp', '\.un\~', '\.un']
 let g:nerdtree_tabs_open_on_console_startup=1
 nnoremap n :NERDTreeTabsToggle<CR>
@@ -165,6 +169,8 @@ let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3
 
 " Local vimrc
 let g:localvimrc_whitelist=''
+let g:localvimrc_ask=0
+let g:localvimrc_sandbox=0
 
 " Indent guide
 let g:indent_guides_auto_colors=0
@@ -209,7 +215,10 @@ autocmd BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R
 let g:go_auto_type_info=1
 
 " vim-slime
-let g:slime_target = "tmux"
+let g:slime_target="tmux"
+
+" vinarise
+let g:vinarise_enable_auto_detect=1
 
 " Colors
 highlight Folded ctermfg=243 ctermbg=234 guifg=Cyan guibg=DarkGrey

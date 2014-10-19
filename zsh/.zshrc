@@ -93,3 +93,5 @@ fi
 if [ -f "$HOME/.profile_local" ]; then
   . "$HOME/.profile_local"
 fi
+export WECHALLUSER="peter50216"
+export WECHALLTOKEN="C03C8-2EC56-699E9-B4004-8AB5F-D50AB"

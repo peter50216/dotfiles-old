@@ -15,7 +15,7 @@
 [alias]
   ci = commit
   dt = difftool
-  st = status
+  st = status -sb
   br = branch
   di = diff
   co = checkout
@@ -84,4 +84,3 @@
   pullllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll = pull
   pulllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll = pull
   pullllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll = pull
-
