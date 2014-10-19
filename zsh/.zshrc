@@ -93,3 +93,9 @@ fi
 if [ -f "$HOME/.profile_local" ]; then
   . "$HOME/.profile_local"
 fi
+
+key[PageUp]=${terminfo[kpp]}
+key[PageDown]=${terminfo[knp]}
+
+[[ -n "${key[PageUp]}"   ]] && bindkey "${key[PageUp]}"   backward-word
+[[ -n "${key[PageDown]}" ]] && bindkey "${key[PageDown]}" forward-word
