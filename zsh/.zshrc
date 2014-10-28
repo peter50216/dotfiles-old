@@ -48,7 +48,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler cabal coffee encode64 gem gitignore golang node nvm pip python rbenv ruby sudo ssh-agent tmux vagrant vundle)
+plugins=(git bundler cabal coffee encode64 gem gitignore golang node nvm pip pyenv python rbenv ruby sudo ssh-agent tmux vagrant vundle)
 
 ZSH_TMUX_AUTOCONNECT="false"
 # ZSH_TMUX_AUTOSTART="true"
