@@ -47,6 +47,7 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim -c "BundleInstall" -c "BundleUpdate" -c "qa"
 
 # Build YCM
+sudo apt-get install build-essential cmake python-dev
 cd ~/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
 
