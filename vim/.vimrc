@@ -122,6 +122,7 @@ highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+autocmd Syntax * normal zR
 
 " Filetype specific settings
 autocmd FileType coffee setl foldmethod=indent
