@@ -30,7 +30,7 @@ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 
 # pyenv
-git clone git://github.com/yyuu/pyenv.git .pyenv
+git clone git://github.com/yyuu/pyenv.git ~/.pyenv
 
 ./install-tmux.sh
 ./install-zsh.sh
