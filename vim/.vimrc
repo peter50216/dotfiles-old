@@ -54,14 +54,23 @@ set foldmethod=syntax
 " set foldnestmax=2
 set history=1000
 set hlsearch
+set ignorecase
 set incsearch
 set lazyredraw
+" Show trailing whitespace
+set list
+" But only interesting whitespace
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
 set mouse=a
 set number
 set ruler
 set shiftwidth=2
 set showcmd
+set showmatch
 set showtabline=2
+set smartcase
 set smartindent
 set softtabstop=2
 set t_Co=256
@@ -69,6 +78,7 @@ set tabstop=2
 set title
 set undofile
 set viewoptions=cursor,folds,slash,unix
+set whichwrap=<,>
 set wildmenu
 colorscheme torte
 
@@ -118,11 +128,11 @@ highlight PmenuSel ctermfg=white ctermbg=20
 highlight Pmenu ctermfg=252 ctermbg=17
 
 " Extra whitespace on line end.
-highlight ExtraWhitespace ctermbg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-autocmd Syntax * normal zR
+" highlight ExtraWhitespace ctermbg=red
+" match ExtraWhitespace /\s\+$/
+" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+" autocmd BufWinLeave * call clearmatches()
+" autocmd Syntax * normal zR
 
 " Filetype specific settings
 autocmd FileType coffee setl foldmethod=indent
