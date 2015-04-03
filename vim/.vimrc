@@ -30,6 +30,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'Shougo/vinarise.vim'
+Plugin 'vim-scripts/ifdef-highlighting'
 
 " Language syntax/indent/compile/etc.
 " One pack for all!!!
@@ -61,7 +62,7 @@ set lazyredraw
 set list
 " But only interesting whitespace
 if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+  set listchars=tab:>\ ,trail:-
 endif
 set mouse=a
 set number
@@ -133,6 +134,8 @@ highlight Pmenu ctermfg=252 ctermbg=17
 " autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 " autocmd BufWinLeave * call clearmatches()
 " autocmd Syntax * normal zR
+
+autocmd! BufNewFile * silent! 0r ~/templates/default.%:e
 
 " Filetype specific settings
 autocmd FileType coffee setl foldmethod=indent
@@ -235,9 +238,6 @@ let g:go_auto_type_info=1
 
 " vim-slime
 let g:slime_target="tmux"
-
-" vinarise
-let g:vinarise_enable_auto_detect=1
 
 " Colors
 highlight Folded ctermfg=243 ctermbg=234 guifg=Cyan guibg=DarkGrey

@@ -103,3 +103,5 @@ key[PageDown]=${terminfo[knp]}
 export WECHALLUSER="peter50216"
 export WECHALLTOKEN="C03C8-2EC56-699E9-B4004-8AB5F-D50AB"
 
+alias ll='ls -lFh'
+alias la='ls -lAFh'

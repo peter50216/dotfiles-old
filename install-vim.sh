@@ -32,7 +32,6 @@ select yn in "Yes" "No"; do
     ./configure --with-features=huge \
       --enable-rubyinterp \
       --enable-pythoninterp \
-      --with-python-config-dir=/usr/lib/python2.7-config \
       --enable-perlinterp \
       --enable-gui=gtk2 --enable-cscope --prefix=/usr \
       --with-compiledby="Darkpi (peter50216@gmail.com)"
@@ -42,6 +41,7 @@ select yn in "Yes" "No"; do
     No ) break;;
   esac
 done
+exit
 # Vundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim -c "BundleInstall" -c "BundleUpdate" -c "qa"
