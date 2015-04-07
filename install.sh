@@ -24,7 +24,7 @@ sudo apt-get -y install htop
 sudo apt-get -y install cmake
 sudo apt-get -y install git
 sudo apt-get -y install mercurial
-sudo apt-get -y install libssl-dev libreadline-dev libbz2-dev libsqlite3-dev
+sudo apt-get -y install libssl-dev libreadline-dev libbz2-dev libsqlite3-dev libffi-dev
 
 # rbenv
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
