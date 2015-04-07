@@ -15,6 +15,7 @@ stow tmux
 
 # Some useful packages
 sudo apt-get -y install python-setuptools
+sudo apt-get -y install build-essential
 sudo apt-get -y install keychain
 # sudo apt-get -y install screen
 sudo apt-get -y install zsh
