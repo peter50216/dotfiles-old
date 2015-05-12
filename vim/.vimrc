@@ -24,7 +24,7 @@ Plugin 'embear/vim-localvimrc'
 Plugin 'vim-scripts/restore_view.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'jpalardy/vim-slime'
-Plugin 'vim-scripts/SearchComplete'
+" Plugin 'vim-scripts/SearchComplete'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
@@ -84,7 +84,7 @@ set wildmenu
 colorscheme torte
 
 " Custom keybinding
-let mapleader='.'
+let mapleader=','
 nnoremap ; :
 nnoremap <BackSpace> gT
 nnoremap <Tab> gt
@@ -184,7 +184,14 @@ let g:syntastic_mode_map={ 'mode': 'active',
 let g:syntastic_javascript_checkers=['gjslint']
 
 " EasyMotion
-let g:EasyMotion_leader_key='<Leader>'
+map <Leader> <Plug>(easymotion-prefix)
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+let g:EasyMotion_move_highlight = 0
 
 " Numbers.vim
 let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'nerdtree']
