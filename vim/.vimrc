@@ -10,12 +10,12 @@ Plugin 'gmarik/Vundle.vim'
 set term=xterm
 
 " Plugins
-Plugin 'SirVer/ultisnips'
-Plugin 'peter50216/VimSnippets'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'peter50216/VimSnippets'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/ListToggle'
-Plugin 'myusuf3/numbers.vim'
+" Plugin 'myusuf3/numbers.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -29,6 +29,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-abolish'
 Plugin 'Shougo/vinarise.vim'
 Plugin 'vim-scripts/ifdef-highlighting'
 
