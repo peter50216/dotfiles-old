@@ -170,7 +170,7 @@ let g:NERDSpaceDelims=1
 " YouCompleteMe
 let g:ycm_confirm_extra_conf=0
 " To avoid problem with hack below for UltiSnip
-let g:ycm_key_list_select_completion = []
+" let g:ycm_key_list_select_completion = []
 noremap <F5> :YcmForceCompileAndDiagnostics<CR>
 inoremap <F5> <ESC>:YcmForceCompileAndDiagnostics<CR>
 noremap <C-g> :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -222,24 +222,24 @@ autocmd BufNewFile,BufRead,BufEnter * silent! iunmap <buffer> <C-g>g
 
 " UltiSnip
 " Hack from http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
-    if pumvisible()
-      return "\<C-N>"
-    else
-      return "\<TAB>"
-    endif
-  endif
-  return ""
-endfunction
+" function! g:UltiSnips_Complete()
+  " call UltiSnips#ExpandSnippet()
+  " if g:ulti_expand_res == 0
+    " if pumvisible()
+      " return "\<C-N>"
+    " else
+      " return "\<TAB>"
+    " endif
+  " endif
+  " return ""
+" endfunction
 
-let g:UltiSnipsExpandTrigger="<TAB>"
-let g:UltiSnipsJumpForwardTrigger="<C-E>"
-let g:UltiSnipsJumpBackwardTrigger="<C-Q>"
-let g:UltiSnipsListSnippets="<C-L>"
-let g:UltiSnipsEditSplit="horizontal"
-autocmd BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+" let g:UltiSnipsExpandTrigger="<TAB>"
+" let g:UltiSnipsJumpForwardTrigger="<C-E>"
+" let g:UltiSnipsJumpBackwardTrigger="<C-Q>"
+" let g:UltiSnipsListSnippets="<C-L>"
+" let g:UltiSnipsEditSplit="horizontal"
+" autocmd BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 
 " Vim-Go
 let g:go_auto_type_info=1

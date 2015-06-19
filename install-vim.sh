@@ -41,7 +41,6 @@ select yn in "Yes" "No"; do
     No ) break;;
   esac
 done
-exit
 # Vundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim -c "BundleInstall" -c "BundleUpdate" -c "qa"
