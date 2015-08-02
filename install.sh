@@ -32,6 +32,7 @@ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 
 # pyenv
 git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+git clone https://github.com/yyuu/pyenv-which-ext.git ~/.pyenv/plugins/pyenv-which-ext
 
 ./install-tmux.sh
 ./install-zsh.sh
