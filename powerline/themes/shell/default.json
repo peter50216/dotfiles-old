@@ -20,6 +20,19 @@
         "function": "powerline.segments.shell.jobnum",
         "priority": 20
       }
+    ],
+    "right": [
+      {
+        "function": "powerline.segments.shell.last_pipe_status",
+        "priority": 10
+      },
+      {
+        "function": "powerline.segments.common.vcs.branch",
+        "priority": 40,
+        "args": {
+          "status_colors": true
+        }
+      }
     ]
   }
 }
