@@ -12,6 +12,10 @@ stow vim
 stow git
 # stow screen
 stow tmux
+if [[ ! -d "$HOME/.config/powerline" ]]; then
+  mkdir -p $HOME/.config
+  ln -s `dirname "$(readlink -f "$0")"`/powerline $HOME/.config/powerline
+fi
 
 # Some useful packages
 sudo apt-get -y install python-setuptools

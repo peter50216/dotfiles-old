@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="gianu"
+# ZSH_THEME="gianu"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -48,7 +48,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler cabal coffee encode64 gem gitignore golang node npm nvm pip pyenv python rbenv ruby sudo ssh-agent tmux vagrant vundle)
+# plugins=(git bundler cabal coffee encode64 gem gitignore golang node npm nvm pip pyenv python rbenv ruby sudo ssh-agent tmux vagrant vundle)
+# npm plugin is slow...
+plugins=(git bundler gem gitignore golang node nvm pip pyenv python rbenv ruby sudo ssh-agent tmux vagrant vundle)
 
 ZSH_TMUX_AUTOCONNECT="false"
 # ZSH_TMUX_AUTOSTART="true"
@@ -105,3 +107,9 @@ export WECHALLTOKEN="C03C8-2EC56-699E9-B4004-8AB5F-D50AB"
 
 alias ll='ls -lFh'
 alias la='ls -lAFh'
+
+if [ -z "$powerline_root" ]; then
+  export powerline_root=`pip show powerline-status | grep Location: | cut -d " " -f2`
+  powerline-daemon -q
+fi
+. $powerline_root/powerline/bindings/zsh/powerline.zsh

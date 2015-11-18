@@ -32,6 +32,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-abolish'
 Plugin 'Shougo/vinarise.vim'
 Plugin 'vim-scripts/ifdef-highlighting'
+Plugin 'kien/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " Language syntax/indent/compile/etc.
 " One pack for all!!!
@@ -98,6 +100,7 @@ inoremap <S-Up> <Up>
 inoremap <S-Down> <Down>
 nnoremap <leader>a <C-a>
 nnoremap <leader>x <C-x>
+vnoremap ; :
 " imap {<CR> {<ESC>o}<ESC>%a<CR>
 set pastetoggle=<F2>
 
@@ -247,21 +250,29 @@ let g:go_auto_type_info=1
 " vim-slime
 let g:slime_target="tmux"
 
+" vim-gitgutter
+let g:gitgutter_sign_column_always=1
+
 " Colors
 highlight Folded ctermfg=243 ctermbg=234 guifg=Cyan guibg=DarkGrey
 highlight FoldColumn ctermbg=234 guifg=Cyan guibg=Grey
 
+" Powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
 " Status line
-highlight StatusLine cterm=none ctermbg=235
-highlight StatusLineNC ctermfg=252 ctermbg=235
-highlight User1 ctermfg=blue ctermbg=235
-highlight User2 ctermfg=red ctermbg=235
-highlight User3 ctermfg=yellow ctermbg=235
-highlight User4 ctermfg=green ctermbg=235
-set laststatus=2
-set statusline=%=%1*
-set statusline+=%{getcwd()}/%f
-set statusline+=\ %2*[%{&encoding}/%{&fileformat}/%Y]
-set statusline+=\ %3*%l,%c
-set statusline+=\ %4*%-4P
+" highlight StatusLine cterm=none ctermbg=235
+" highlight StatusLineNC ctermfg=252 ctermbg=235
+" highlight User1 ctermfg=blue ctermbg=235
+" highlight User2 ctermfg=red ctermbg=235
+" highlight User3 ctermfg=yellow ctermbg=235
+" highlight User4 ctermfg=green ctermbg=235
+" set laststatus=2
+" set statusline=%=%1*
+" set statusline+=%{getcwd()}/%f
+" set statusline+=\ %2*[%{&encoding}/%{&fileformat}/%Y]
+" set statusline+=\ %3*%l,%c
+" set statusline+=\ %4*%-4P
 
