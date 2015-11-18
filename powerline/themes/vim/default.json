@@ -50,18 +50,11 @@
       {
         "exclude_modes": ["i", "R", "Rv"],
         "function": "trailing_whitespace",
-        "display": false,
         "priority": 60
       },
       {
         "exclude_modes": ["nc"],
         "function": "powerline.segments.vim.plugin.syntastic.syntastic",
-        "priority": 50
-      },
-      {
-        "exclude_modes": ["nc"],
-        "function": "powerline.segments.vim.plugin.tagbar.current_tag",
-        "draw_soft_divider": false,
         "priority": 50
       },
       {
@@ -94,15 +87,6 @@
         "priority": 50,
         "width": 4,
         "align": "r"
-      },
-      {
-        "function": "csv_col_current",
-        "priority": 30
-      },
-      {
-        "type": "string",
-        "name": "line_current_symbol",
-        "highlight_groups": ["line_current_symbol", "line_current"]
       },
       {
         "function": "line_current",
