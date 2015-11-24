@@ -10,11 +10,6 @@
             "function": "tab"
           },
           {
-            "function": "tabnr",
-            "after": " ",
-            "priority": 5
-          },
-          {
             "function": "file_directory",
             "priority": 40
           },
