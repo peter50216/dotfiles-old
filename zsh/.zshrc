@@ -114,6 +114,8 @@ alias la='ls -lAFh'
 alias ta='tmux at -t'
 alias tl='tmux ls'
 
+stty -ixon
+
 if [ -z "$powerline_root" ]; then
   export powerline_root=`pip show powerline-status | grep Location: | cut -d " " -f2`
   powerline-daemon -q
