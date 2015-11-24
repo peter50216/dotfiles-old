@@ -99,14 +99,20 @@ fi
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
-[[ -n "${key[PageUp]}"   ]] && bindkey "${key[PageUp]}"   backward-word
-[[ -n "${key[PageDown]}" ]] && bindkey "${key[PageDown]}" forward-word
+if [[ -n "${key[PageUp]}" ]]; then
+  bindkey "${key[PageUp]}" backward-word
+fi
+if [[ -n "${key[PageDown]}" ]]; then
+  bindkey "${key[PageDown]}" forward-word
+fi
 
 export WECHALLUSER="peter50216"
 export WECHALLTOKEN="C03C8-2EC56-699E9-B4004-8AB5F-D50AB"
 
 alias ll='ls -lFh'
 alias la='ls -lAFh'
+alias ta='tmux at -t'
+alias tl='tmux ls'
 
 if [ -z "$powerline_root" ]; then
   export powerline_root=`pip show powerline-status | grep Location: | cut -d " " -f2`
