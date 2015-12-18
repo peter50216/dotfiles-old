@@ -34,6 +34,8 @@ Plugin 'Shougo/vinarise.vim'
 Plugin 'vim-scripts/ifdef-highlighting'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'racer-rust/vim-racer'
+Plugin 'Chiel92/vim-autoformat'
 
 " Language syntax/indent/compile/etc.
 " One pack for all!!!
@@ -56,6 +58,7 @@ set fileencoding=utf8
 set fileencodings=utf8,big5,cp950
 set foldmethod=syntax
 " set foldnestmax=2
+set hidden
 set history=1000
 set hlsearch
 set ignorecase
@@ -262,6 +265,13 @@ python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
 
+" vim-racer
+let $RUST_SRC_PATH="/home/peter50216/rust-book/rustc-1.5.0/src/"
+
+" vim-autoformat
+noremap <F3> :Autoformat<CR>
+let g:autoformat_autoindent = 0
+
 " Status line
 " highlight StatusLine cterm=none ctermbg=235
 " highlight StatusLineNC ctermfg=252 ctermbg=235
@@ -275,4 +285,3 @@ python del powerline_setup
 " set statusline+=\ %2*[%{&encoding}/%{&fileformat}/%Y]
 " set statusline+=\ %3*%l,%c
 " set statusline+=\ %4*%-4P
-

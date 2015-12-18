@@ -52,7 +52,7 @@ BUNDLED_COMMANDS=(passenger padrino)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(git bundler cabal coffee encode64 gem gitignore golang node npm nvm pip pyenv python rbenv ruby sudo ssh-agent tmux vagrant vundle)
 # npm plugin is slow...
-plugins=(git bundler gem gitignore golang node nvm pip pyenv python rbenv ruby sudo ssh-agent tmux vagrant vundle)
+plugins=(git bundler gem gitignore golang node nvm pip pyenv python rbenv ruby sudo ssh-agent tmux vagrant vundle zsh-syntax-highlighting)
 
 ZSH_TMUX_AUTOCONNECT="false"
 # ZSH_TMUX_AUTOSTART="true"
