@@ -53,6 +53,7 @@ set backspace=2
 set completeopt=menuone
 set confirm
 set display=lastline
+set encoding=utf8
 set expandtab
 set fileencoding=utf8
 set fileencodings=utf8,big5,cp950
@@ -73,6 +74,7 @@ endif
 set mouse=a
 set number
 set ruler
+set shiftround
 set shiftwidth=2
 set showcmd
 set showmatch
@@ -83,6 +85,7 @@ set softtabstop=2
 set t_Co=256
 set tabstop=2
 set title
+set titleold=
 set undofile
 set viewoptions=cursor,folds,slash,unix
 set whichwrap=<,>
