@@ -144,8 +144,18 @@ highlight Pmenu ctermfg=252 ctermbg=17
 " autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 " autocmd BufWinLeave * call clearmatches()
 " autocmd Syntax * normal zR
+function LoadDefaultCode()
+  silent! 0r ~/templates/default.%:e
+endfunction
 
-autocmd! BufNewFile * silent! 0r ~/templates/default.%:e
+function LoadDefaultCodeIfEmpty()
+  if line('$') == 1 && col('$') == 1
+    call LoadDefaultCode()
+  endif
+endfunction
+
+autocmd! BufNewFile * call LoadDefaultCode()
+autocmd! BufRead * call LoadDefaultCodeIfEmpty()
 
 " Filetype specific settings
 autocmd FileType coffee setl foldmethod=indent

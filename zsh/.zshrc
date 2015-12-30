@@ -1,90 +1,85 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# zgen
+# XXX(Darkpi): Assume that we'll always clone dotfiles in home folder.
+ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc)
+source ~/dotfiles/zgen/zgen.zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# ZSH_THEME="gianu"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-BUNDLED_COMMANDS=(passenger padrino)
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# plugins=(git bundler cabal coffee encode64 gem gitignore golang node npm nvm pip pyenv python rbenv ruby sudo ssh-agent tmux vagrant vundle)
-# npm plugin is slow...
-plugins=(git bundler gem gitignore golang node nvm pip pyenv python rbenv ruby sudo ssh-agent tmux vagrant vundle zsh-syntax-highlighting)
-
-ZSH_TMUX_AUTOCONNECT="false"
-# ZSH_TMUX_AUTOSTART="true"
+# Do stupid fix
+# We'll never use non-256-color terminal!
 if [[ $TERM == "xterm" ]]; then
   export TERM=xterm-256color
 fi
 
-alias cpv="rsync -pogh -e /dev/null --progress --"
+# Fix pageup/pagedown to correct key
+# key[PageUp]=${terminfo[kpp]}
+# key[PageDown]=${terminfo[knp]}
 
-source $ZSH/oh-my-zsh.sh
+if [[ -n "${key[PageUp]}" ]]; then
+  bindkey "${key[PageUp]}" backward-word
+fi
+if [[ -n "${key[PageDown]}" ]]; then
+  bindkey "${key[PageDown]}" forward-word
+fi
+
+# No Ctrl+S freezing.
+stty -ixon
+
+# Oh-my-zsh settings
+DISABLE_AUTO_TITLE="true"
+COMPLETION_WAITING_DOTS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+ZSH_TMUX_AUTOCONNECT="false"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+BUNDLED_COMMANDS=(passenger padrino)
+
+if ! zgen saved; then
+  echo "Creating a zgen save"
+  # zgen prezto
+  # Oh-my-zsh!
+  zgen oh-my-zsh  # 0.1 seconds
+  zgen oh-my-zsh plugins/sudo
+  zgen oh-my-zsh plugins/ssh-agent
+
+  zgen oh-my-zsh plugins/tmux
+
+  zgen oh-my-zsh plugins/git
+  zgen oh-my-zsh plugins/gitignore
+
+  zgen oh-my-zsh plugins/bundler
+  zgen oh-my-zsh plugins/rbenv
+  zgen oh-my-zsh plugins/ruby
+  zgen oh-my-zsh plugins/gem
+
+  zgen oh-my-zsh plugins/node
+  # zgen oh-my-zsh plugins/nvm  # 0.2 seconds...
+  zgen oh-my-zsh plugins/golang
+
+  zgen oh-my-zsh plugins/pip
+  zgen oh-my-zsh plugins/pyenv  # 0.2 seconds...
+  zgen oh-my-zsh plugins/python
+
+  zgen oh-my-zsh plugins/vagrant
+
+  zgen oh-my-zsh plugins/vundle
+
+  # Other plugins
+  zgen load zsh-users/zsh-syntax-highlighting
+  zgen load Lokaltog/powerline powerline/bindings/zsh  # 0.3 seconds
+  zgen load rust-lang/zsh-config
+  zgen save
+fi
 
 unsetopt share_history
 
-# User configuration
+powerline-daemon -q
 
-# export MANPATH="/usr/local/man:$MANPATH"
+alias ll='ls -lFh'
+alias la='ls -lAFh'
+alias ta='tmux at -t'
+alias tl='tmux ls'
+alias cpv="rsync -pogh -e /dev/null --progress --"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export WECHALLUSER="peter50216"
+export WECHALLTOKEN="C03C8-2EC56-699E9-B4004-8AB5F-D50AB"
 
 if [[ -d "$HOME/.cabal" ]]; then
   export PATH=$HOME/.cabal/bin:$PATH
@@ -95,31 +90,6 @@ if [[ -d "$HOME/.nvm" ]]; then
 fi
 
 if [ -f "$HOME/.profile_local" ]; then
-  . "$HOME/.profile_local"
+  source "$HOME/.profile_local"
 fi
 
-key[PageUp]=${terminfo[kpp]}
-key[PageDown]=${terminfo[knp]}
-
-if [[ -n "${key[PageUp]}" ]]; then
-  bindkey "${key[PageUp]}" backward-word
-fi
-if [[ -n "${key[PageDown]}" ]]; then
-  bindkey "${key[PageDown]}" forward-word
-fi
-
-export WECHALLUSER="peter50216"
-export WECHALLTOKEN="C03C8-2EC56-699E9-B4004-8AB5F-D50AB"
-
-alias ll='ls -lFh'
-alias la='ls -lAFh'
-alias ta='tmux at -t'
-alias tl='tmux ls'
-
-stty -ixon
-
-if [ -z "$powerline_root" ]; then
-  export powerline_root=`pip show powerline-status | grep Location: | cut -d " " -f2`
-  powerline-daemon -q
-fi
-. $powerline_root/powerline/bindings/zsh/powerline.zsh
