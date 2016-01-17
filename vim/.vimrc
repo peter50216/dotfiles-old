@@ -36,6 +36,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'racer-rust/vim-racer'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'ConradIrwin/vim-bracketed-paste'
 
 " Language syntax/indent/compile/etc.
 " One pack for all!!!
@@ -58,6 +60,7 @@ set expandtab
 set fileencoding=utf8
 set fileencodings=utf8,big5,cp950
 set foldmethod=syntax
+set formatoptions+=j
 " set foldnestmax=2
 set hidden
 set history=1000
@@ -69,7 +72,7 @@ set lazyredraw
 set list
 " But only interesting whitespace
 if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
 set mouse=a
 set number
@@ -144,11 +147,11 @@ highlight Pmenu ctermfg=252 ctermbg=17
 " autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 " autocmd BufWinLeave * call clearmatches()
 " autocmd Syntax * normal zR
-function LoadDefaultCode()
+function! LoadDefaultCode()
   silent! 0r ~/templates/default.%:e
 endfunction
 
-function LoadDefaultCodeIfEmpty()
+function! LoadDefaultCodeIfEmpty()
   if line('$') == 1 && col('$') == 1
     call LoadDefaultCode()
   endif
@@ -190,6 +193,8 @@ let g:NERDSpaceDelims=1
 let g:ycm_confirm_extra_conf=0
 " To avoid problem with hack below for UltiSnip
 " let g:ycm_key_list_select_completion = []
+let g:ycm_key_list_select_completion = ['<TAB>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>']
 noremap <F5> :YcmForceCompileAndDiagnostics<CR>
 inoremap <F5> <ESC>:YcmForceCompileAndDiagnostics<CR>
 noremap <C-g> :YcmCompleter GoToDefinitionElseDeclaration<CR>

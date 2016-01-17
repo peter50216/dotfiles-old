@@ -25,10 +25,9 @@ select yn in "Yes" "No"; do
     }
 
     cd ~
-    hg clone https://code.google.com/p/vim/
+    git clone https://github.com/vim/vim.git
     cd vim
-    hg pull
-    hg update
+    git pull
     ./configure --with-features=huge \
       --enable-rubyinterp \
       --enable-pythoninterp \
